@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
 
 
 /**
- * Implements services that operate on immunization receipts.
+ * Provides services that operate on immunization receipts.
  * 
  * @author pankil
  *
@@ -30,8 +30,12 @@ public class ImmsReceiptsServices {
 	private static int counter = 0;
 	private static final int trackLimit = 10;
 	
+	/**
+	 * Get list of recent receipts and put it in html list
+	 * @return recent receipts in html format
+	 */
 	@GET
-	@Path("rec")
+	@Path("recent")
 	@Produces("text/html")
 	public String recentReceipts(){
 		
@@ -46,7 +50,7 @@ public class ImmsReceiptsServices {
 	}
 	
 	
-	
+	/*
 	@GET
 	@Path("receipts")
 	@Produces("text/html")
@@ -55,6 +59,7 @@ public class ImmsReceiptsServices {
 		ProcessReceipts bl = new ProcessReceipts();
 		return Response.status(200).entity(bl.getClients()).build();
 	}
+	*/
 	
 	
 	@POST
@@ -85,8 +90,8 @@ public class ImmsReceiptsServices {
 		if (parsingSuccess) 
 		{
 			// call model to store the file
-			ProcessReceipts bl = new ProcessReceipts();
-			output = bl.saveReceipt(builder.toString());
+			ProcessReceipts receiptsProcesser = new ProcessReceipts();
+			output = receiptsProcesser.saveReceipt(builder.toString());
 		}
 		
 		

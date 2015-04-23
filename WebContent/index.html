@@ -5,15 +5,17 @@
 <title>Main Page</title>
 </head>
 <body>
-<p>
-Go to: 
-<br></br>
-1. Get /rest/api
-<br></br>
-2. Post /rest/api/client (send json)
-</p>
+<p>This is the index page to use the web services try:</p>  
+<p>1. Send a get request to /rest/api/recent</p> 
+<p>The server will return a list of the recent post requests that were send to &quot;/rest/api/client&quot; </p>
 
+<p>2. Send JSON in a post request to /rest/api/client</p>
+<p>This JSON will be saved in the cloudant database and will also be put in the recent request list. </p>
 
+<p>3. Send a get request to /rest/api/clients</p>
+<p>This is experimental and not implemented yet - it should return all the documents in the clients database on Cloudant.</p>
+
+<p>More will be added later.</p>
 
 </body>
 </html>
