@@ -61,7 +61,11 @@ public class ImmsReceiptsServices {
 	}
 	*/
 	
-	
+	/**
+	 * Given Immunization Receipt in json store it in database
+	 * @param data the immunization receipt
+	 * @return operation result
+	 */
 	@POST
 	@Path("client")
 	@Consumes("application/json")
