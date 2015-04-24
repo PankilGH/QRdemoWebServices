@@ -22,11 +22,11 @@ import com.google.gson.JsonParser;
  * @author 
  *
  */
-public class RecordsFHIR1DBClientMgr {
+public class RecordsDBCloudantClientMgr {
 
 	private static CloudantClient cloudant = null;
 	private static Database db = null;
-	private static String databaseName = "healthrecordsdstu1fhir"; 
+	private static String databaseName = "healthRecords"; 
 	private static String user = null;
 	private static String password = null;
 	private static String host = null;
@@ -134,7 +134,7 @@ public class RecordsFHIR1DBClientMgr {
 		return databaseName;
 	}
 	
-	private RecordsFHIR1DBClientMgr() {
+	private RecordsDBCloudantClientMgr() {
 	    	
 	 }
 	

@@ -3,19 +3,12 @@
  */
 package gov.on.controller;
 
-import gov.on.businesslogic.ProcessHealthRecord;
-
-import java.io.InputStream;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 
 /**
@@ -39,52 +32,24 @@ public class HealthRecordServices {
 		return id;
 	}
 	
-	
-	/*
-	 * This is for testing purposes only
-	 * 
-	 */
-	@GET
-	@Path("test/query/hcn/fhir1/{num}")
-	@Produces("application/json")
-	public String testingOnly(@PathParam("num") String num){
-		ProcessHealthRecord phr = new ProcessHealthRecord();
-		
-		return phr.hcnSearchHR(num, "fhir1");
-	}
-	
-	
 	/**
-	 * Given some filters in the POST body return matching health record
-	 * @return  the health record that matches filters in POST body
+	 * Given some search filters in the POST body return matching health record
+	 * @return the matching health record
 	 */
 	@POST
-	@Path("query/hcn/")
+	@Path("query/hcn")
 	@Consumes("application/json")
 	@Produces("application/json")
-	public String healthRecordBySearch(InputStream data){
-		String results = "{\"status\":\"error\"}";
-		String req = ControllerUtility.getRequestBodyString(data);
-		String hcn = "";
-		String fhir = "";
+	public String healthRecordBySearch(){
+		String results = "";
+		
 		boolean valid = true;
-		try {
-			JSONObject jsonObject = new JSONObject(req);
-			hcn = jsonObject.getString("hcn");
-			fhir = jsonObject.getString("fhir");
-			System.out.println(hcn + " - " + fhir);
-			
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			valid = false;
-		}
 		
 		// if the request is valid, search
 		if (valid) {
-			ProcessHealthRecord phr = new ProcessHealthRecord();
-			results = phr.hcnSearchHR(hcn, fhir);
+			results = "found";
 		}
+		
 		return results;
 	}
 	
@@ -93,7 +58,6 @@ public class HealthRecordServices {
 	 * Lists the health records in the database
 	 * @return
 	 */
-	/*
 	@GET
 	@Path("/")
 	@Produces("application/json")
@@ -102,5 +66,4 @@ public class HealthRecordServices {
 		
 		return result;
 	}
-	*/
 }

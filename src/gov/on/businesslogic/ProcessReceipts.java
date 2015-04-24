@@ -40,7 +40,6 @@ public class ProcessReceipts {
 	 * This is an experimental method that is still being worked on/defined.
 	 * @return
 	 */
-	/*
 	public String getClients() {
 		Database db = null;
 		String output = "get clients";
@@ -57,7 +56,7 @@ public class ProcessReceipts {
 		
 		return output;
 	}
-	*/
+	
 	
 	/*
 	public String searchClients(){

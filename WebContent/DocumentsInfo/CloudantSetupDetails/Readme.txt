@@ -1,1 +1,0 @@
-The contents in this folder will explain how Cloudant should be set up for this application to work as required.

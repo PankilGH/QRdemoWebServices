@@ -2,70 +2,20 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Service Information</title>
+<title>Main Page</title>
 </head>
 <body>
-<h2>Information</h2>
-<p>This is an experimental application any data on this server is fake.</p>
-<p>Main purpose of the project is to check feasibility of different type of technologies and ideas.</p>
-<h4>QR Web Services</h4>
-<h5>Description: These services were created for the QR feasibility study</h5>
-<p>To use the web services try:</p>  
+<p>This is the index page to use the web services try:</p>  
 <p>1. Send a get request to /rest/api/recent</p> 
 <p>The server will return a list of the recent post requests that were send to &quot;/rest/api/client&quot; </p>
 
 <p>2. Send JSON in a post request to /rest/api/client</p>
 <p>This JSON will be saved in the cloudant database and will also be put in the recent request list. </p>
 
-<!--  
 <p>3. Send a get request to /rest/api/clients</p>
 <p>This is experimental and not implemented yet - it should return all the documents in the clients database on Cloudant.</p>
--->
-<h4>Health Records</h4>
-<h5>Search for test data clients using the sample HCNs listed below</h5>
-<p>Query for following records by sending a post request using sample HCN listed below</p>
-<p>Details on what the post request should look like: to do</p>
 
-<p>
-Links:<br />
-get - <a href=http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/test/query/hcn/fhir1/633756539>http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/test/query/hcn/fhir1/633756539</a><br />
-post - http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/query/hcn/<br />
-</p>
-<p>
-	{ "hcn":"633756539", "fhir":"fhir1"}<br />
-	and<br /> 
-	Content-Type set to application/json<br />
-</p>
-
-<p>The HCN:</p>
-<p>
-6337565391<br />
-8988950856<br />
-7703432802<br />
-5500443147<br />
-5531587581<br />
-5777976423<br />
-4590018273<br />
-4178989887<br />
-5295584923<br />
-6337565391<br />
-8820227893<br />
-8545762398</p>
-
-<p>For reference mapping of file name to text files:</p>
-<p>
-6337565391=out1<br />
-8988950856=out01<br />
-7703432802=out02<br />
-5500443147=out03<br />
-5531587581=out04<br />
-5777976423=out05<br />
-4590018273=out06<br />
-4178989887=out07<br />
-5295584923=out08<br />
-6337565391=out09<br />
-8820227893=out10<br />
-8545762398=out11</p> 
+<p>More will be added later.</p>
 
 </body>
 </html>

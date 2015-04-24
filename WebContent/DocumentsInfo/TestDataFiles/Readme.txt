@@ -1,1 +1,0 @@
-This folder contains test data and files that can be used as a reference.
