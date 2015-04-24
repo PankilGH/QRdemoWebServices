@@ -64,6 +64,7 @@ public class DBassistant {
 			output = "{\"status\":\"error\"}";
 		}
 		return output;	
+		
 	}
 
 	public static String searchDB(Database db, String designDocName, String indexName, String filter) {
