@@ -1,0 +1,174 @@
+{
+  "resourceType": "List",
+  "contained": [
+    {
+      "resourceType": "Patient",
+      "id": "6337565391",
+      "identifier": [
+        {
+          "use": "official",
+          "system": "urn:oid:2.16.840.1.113883.3.122.3.272",
+          "value": "6337565391"
+        }
+      ],
+      "gender": {
+        "coding": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.5.1.3.9001.11",
+            "code": "Unk",
+            "display": "Unknown"
+          }
+        ]
+      },
+      "birthDate": "2000-01-01"
+    }
+  ],
+  "subject": {
+    "reference": "https://10.69.11.97:9447/cswo/cswo/patient/6337565391",
+    "display": " 2000-01-01�"
+  },
+  "date": "2015-04-15T14:41:25.018-05:00",
+  "mode": "working",
+  "entry": [
+    {
+      "item": {
+        "reference": "https://10.69.11.97:9447/cswo/cswo/immunization/131143",
+        "display": "{\"identifier\":[{\"use\":\"Official\",\"system\":\"urn:oid:2.16.840.1.113883.3.122.1.1.5\",\"value\":\"131143\"}],\"date\":\"2000-03-14\",\"vaccineType\":[{\"system\":\"urn:oid:2.16.840.1.113883.2.20.3.282\",\"code\":\"61153008\",\"display\":\"MMR\"}],\"subject\":{\"identifier\":[{\"use\":\"Official\",\"system\":\"urn:oid:2.16.840.1.113883.3.122.3.272\",\"value\":\"6337565391\"}],\"name\":[{\"use\":\"Official\",\"text\":\"Official Name\",\"family\":[null],\"given\":[null]}],\"birthDate\":\"2000-01-01\"},\"doseQuantity\":{\"value\":1.0}}"
+      },
+      "itemTarget": {
+        "resourceType": "Immunization",
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.122.1.1.5",
+            "value": "131143"
+          }
+        ],
+        "date": "2000-03-14T00:00:00-05:00",
+        "vaccineType": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.2.20.3.282",
+              "code": "61153008",
+              "display": "MMR"
+            }
+          ]
+        },
+        "doseQuantity": {
+          "value": 1
+        }
+      }
+    },
+    {
+      "item": {
+        "reference": "https://10.69.11.97:9447/cswo/cswo/immunization/725783",
+        "display": "{\"identifier\":[{\"use\":\"Official\",\"system\":\"urn:oid:2.16.840.1.113883.3.122.1.1.5\",\"value\":\"725783\"}],\"date\":\"2000-06-14\",\"vaccineType\":[{\"system\":\"urn:oid:2.16.840.1.113883.2.20.3.282\",\"code\":\"108729007\",\"display\":\"Var\"}],\"subject\":{\"identifier\":[{\"use\":\"Official\",\"system\":\"urn:oid:2.16.840.1.113883.3.122.3.272\",\"value\":\"6337565391\"}],\"name\":[{\"use\":\"Official\",\"text\":\"Official Name\",\"family\":[null],\"given\":[null]}],\"birthDate\":\"2000-01-01\"},\"doseQuantity\":{\"value\":1.0}}"
+      },
+      "itemTarget": {
+        "resourceType": "Immunization",
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.122.1.1.5",
+            "value": "725783"
+          }
+        ],
+        "date": "2000-06-14T00:00:00-05:00",
+        "vaccineType": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.2.20.3.282",
+              "code": "108729007",
+              "display": "Var"
+            }
+          ]
+        },
+        "doseQuantity": {
+          "value": 1
+        }
+      }
+    },
+    {
+      "item": {
+        "reference": "https://10.69.11.97:9447/cswo/cswo/immunization/1942213",
+        "display": "{\"identifier\":[{\"use\":\"Official\",\"system\":\"urn:oid:2.16.840.1.113883.3.122.1.1.5\",\"value\":\"1942213\"}],\"date\":\"1999-05-14\",\"vaccineType\":[{\"system\":\"urn:oid:2.16.840.1.113883.2.20.3.282\",\"code\":\"7811000087105\",\"display\":\"RV1\"}],\"subject\":{\"identifier\":[{\"use\":\"Official\",\"system\":\"urn:oid:2.16.840.1.113883.3.122.3.272\",\"value\":\"6337565391\"}],\"name\":[{\"use\":\"Official\",\"text\":\"Official Name\",\"family\":[null],\"given\":[null]}],\"birthDate\":\"2000-01-01\"},\"doseQuantity\":{\"value\":1.0}}"
+      },
+      "itemTarget": {
+        "resourceType": "Immunization",
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.122.1.1.5",
+            "value": "1942213"
+          }
+        ],
+        "date": "1999-05-14T00:00:00-05:00",
+        "vaccineType": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.2.20.3.282",
+              "code": "7811000087105",
+              "display": "RV1"
+            }
+          ]
+        },
+        "doseQuantity": {
+          "value": 1
+        }
+      }
+    },
+    {
+      "item": {
+        "reference": "https://10.69.11.97:9447/cswo/cswo/immunization/1942223",
+        "display": "{\"identifier\":[{\"use\":\"Official\",\"system\":\"urn:oid:2.16.840.1.113883.3.122.1.1.5\",\"value\":\"1942223\"}],\"date\":\"1999-07-14\",\"vaccineType\":[{\"system\":\"urn:oid:2.16.840.1.113883.2.20.3.282\",\"code\":\"7811000087105\",\"display\":\"RV1\"}],\"subject\":{\"identifier\":[{\"use\":\"Official\",\"system\":\"urn:oid:2.16.840.1.113883.3.122.3.272\",\"value\":\"6337565391\"}],\"name\":[{\"use\":\"Official\",\"text\":\"Official Name\",\"family\":[null],\"given\":[null]}],\"birthDate\":\"2000-01-01\"},\"doseQuantity\":{\"value\":2.0}}"
+      },
+      "itemTarget": {
+        "resourceType": "Immunization",
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.122.1.1.5",
+            "value": "1942223"
+          }
+        ],
+        "date": "1999-07-14T00:00:00-05:00",
+        "vaccineType": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.2.20.3.282",
+              "code": "7811000087105",
+              "display": "RV1"
+            }
+          ]
+        },
+        "doseQuantity": {
+          "value": 2
+        }
+      }
+    },
+    {
+      "item": {
+        "reference": "https://10.69.11.97:9447/cswo/cswo/immunization/3089633",
+        "display": "{\"identifier\":[{\"use\":\"Official\",\"system\":\"urn:oid:2.16.840.1.113883.3.122.1.1.5\",\"value\":\"3089633\"}],\"date\":\"2010-03-14\",\"vaccineType\":[{\"system\":\"urn:oid:2.16.840.1.113883.2.20.3.282\",\"code\":\"8771000087109\",\"display\":\"HB\"}],\"subject\":{\"identifier\":[{\"use\":\"Official\",\"system\":\"urn:oid:2.16.840.1.113883.3.122.3.272\",\"value\":\"6337565391\"}],\"name\":[{\"use\":\"Official\",\"text\":\"Official Name\",\"family\":[null],\"given\":[null]}],\"birthDate\":\"2000-01-01\"},\"doseQuantity\":{\"value\":1.0}}"
+      },
+      "itemTarget": {
+        "resourceType": "Immunization",
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.122.1.1.5",
+            "value": "3089633"
+          }
+        ],
+        "date": "2010-03-14T00:00:00-05:00",
+        "vaccineType": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.2.20.3.282",
+              "code": "8771000087109",
+              "display": "HB"
+            }
+          ]
+        },
+        "doseQuantity": {
+          "value": 1
+        }
+      }
+    }
+  ]
+}
