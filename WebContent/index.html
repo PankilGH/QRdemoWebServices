@@ -27,17 +27,22 @@
 <p>Details on what the post request should look like: to do</p>
 
 <p>
-Links:<br />
-get - <a href=http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/test/query/hcn/fhir1/633756539>http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/test/query/hcn/fhir1/633756539</a><br />
-post - http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/query/hcn/<br />
+Access FHIR1 or FHIR2 health records data:<br />
+Using get<br /> 
+- FHIR1: <a href=http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/test/query/hcn/fhir1/6337565391>http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/test/query/hcn/fhir1/6337565391</a><br />
+- FHIR2: <a href=http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/test/query/hcn/fhir2/6337565391>http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/test/query/hcn/fhir2/6337565391</a><br />
 </p>
 <p>
-	{ "hcn":"633756539", "fhir":"fhir1"}<br />
-	and<br /> 
-	Content-Type set to application/json<br />
+post - http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/query/hcn/<br />
+FHIR1:<br />
+<b>{ "hcn":"633756539", "fhir":"fhir1"}</b><br />
+FHIR2:<br />
+<b>{ "hcn":"633756539", "fhir":"fhir2"}</b><br />
+	also<br /> 
+	<b>Content-Type</b> should be set to <b>application/json</b><br />
 </p>
 
-<p>The HCN:</p>
+<p>The HCNs that can be searched:</p>
 <p>
 6337565391<br />
 8988950856<br />
@@ -51,21 +56,6 @@ post - http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/query/hcn/<b
 6337565391<br />
 8820227893<br />
 8545762398</p>
-
-<p>For reference mapping of file name to text files:</p>
-<p>
-6337565391=out1<br />
-8988950856=out01<br />
-7703432802=out02<br />
-5500443147=out03<br />
-5531587581=out04<br />
-5777976423=out05<br />
-4590018273=out06<br />
-4178989887=out07<br />
-5295584923=out08<br />
-6337565391=out09<br />
-8820227893=out10<br />
-8545762398=out11</p> 
 
 </body>
 </html>

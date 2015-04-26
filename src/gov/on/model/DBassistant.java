@@ -82,9 +82,9 @@ public class DBassistant {
 	 * that I am using can't perform HTTP POST search.
 	 * 
 	 * 
-	 * @param query
-	 * @param db
-	 * @param index
+	 * @param db the data base you want to perform the search in (example: fhir1 or fhir2)
+	 * @param indexTosearch the "designDocument/searchIndexName"
+	 * @param query the value of the hcn that you are searching for
 	 * @return
 	 */
 	public static JSONObject queryForJSONobject(Database db, String indexTosearch, String query) {
@@ -102,6 +102,7 @@ public class DBassistant {
 		HttpPost post = new HttpPost(uri);		
 		post.addHeader("Accept", "application/json");
 		try {
+			//do not change this
 			String queryString = "{\"query\":"+"\"\\\""+query+"\\\"\""+",";
 			String incDocs = "\"include_docs\":true}";
 			queryString = queryString + incDocs;
