@@ -5,29 +5,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.lightcouch.internal.URIBuilder;
 
 import com.cloudant.client.api.Database;
-import com.cloudant.client.api.Search;
-import com.cloudant.client.api.model.DesignDocument;
 import com.cloudant.client.api.model.Response;
-import com.cloudant.client.api.model.SearchResult;
 
-import static org.lightcouch.internal.CouchDbUtil.getStream;
 
 
 // I found I was going to be copy pasting a lot of code to perform similar tasks
@@ -66,6 +55,7 @@ public class DBassistant {
 		return output;	
 	}
 
+	/*
 	public static String searchDB(Database db, String designDocName, String indexName, String filter) {
 		
 		System.out.println("db: " + db + " - " + "index: " + indexName + " - " + "key:value: " + filter + " - ");
@@ -80,8 +70,98 @@ public class DBassistant {
 		//
 		return data;
 	}
+	*/
 	
 	
+	// This code needs some clean up
+	/**
+	 * When I send a number in HTTP GET it gets read as an integer and search doesn't match with
+	 * string value of the same number.
+	 * 
+	 * This function was created to search using HTTP POST since the cloudant clinet
+	 * that I am using can't perform HTTP POST search.
+	 * 
+	 * 
+	 * @param db the data base you want to perform the search in (example: fhir1 or fhir2)
+	 * @param indexTosearch the "designDocument/searchIndexName"
+	 * @param query the value of the hcn that you are searching for
+	 * @return
+	 */
+	public static JSONObject queryForJSONobject(Database db, String indexTosearch, String query) {
+		String searchPath = indexTosearch;
+		JSONObject jsonObject = null;
+		
+		
+		if(indexTosearch.contains("/")) {
+				String[] v = indexTosearch.split("/");
+				searchPath = String.format("_design/%s/_search/%s", v[0], v[1]);
+		}
+		URIBuilder uriBuilder = URIBuilder.buildUri(db.getDBUri()).path(searchPath);
+		URI uri = uriBuilder.build();
+		
+		HttpPost post = new HttpPost(uri);		
+		post.addHeader("Accept", "application/json");
+		try {
+			//do not change this
+			String queryString = "{\"query\":"+"\"\\\""+query+"\\\"\""+",";
+			String incDocs = "\"include_docs\":true}";
+			queryString = queryString + incDocs;
+			System.out.println(queryString);
+			post.setEntity(new StringEntity(queryString));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		HttpResponse res = ReceiptsDBCloudantClientMgr.getCloudantClient().executeRequest(post);
+		System.out.println("reading the response");
+		InputStream data = null;
+		StringBuilder builder = new StringBuilder();
+		try {
+			data = res.getEntity().getContent();
+			try {
+				BufferedReader in = new BufferedReader(new InputStreamReader(data));
+				String line = null;
+				while ((line = in.readLine()) != null){
+					builder.append(line);
+					System.out.println(line);
+				}
+				in.close();
+			}
+			catch (Exception e) {
+				System.out.println("Error Parsing the request");
+			}
+			
+			System.out.println("builder as string: "+builder.toString());
+			
+			try {
+				jsonObject = new JSONObject(builder.toString());
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			// review this
+			res.getEntity().getContent().close();
+			System.out.println("Ran res.getEntity().getContent().close()");
+			
+		} catch (UnsupportedOperationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// TODO add finally
+		System.out.println("jsonObject" + jsonObject.toString());
+		return jsonObject; 
+	}
+	
+	
+	
+	
+	
+	
+	//** Old code keeping for reference
 	/**
 	 * This function was created to search using HTTP POST since the cloudant clinet
 	 * that I am using can't perform HTTP POST search.
@@ -93,22 +173,23 @@ public class DBassistant {
 	 * @param searchIndexID
 	 * @return
 	 */
+	/*
 	public static String queryForStream(String query, Database db, String searchIndexID) {
-	String search = searchIndexID;
-	if(searchIndexID.contains("/")) {
-			String[] v = searchIndexID.split("/");
-			search = String.format("_design/%s/_search/%s", v[0], v[1]);
-	}
-	URIBuilder uriBuilder = URIBuilder.buildUri(db.getDBUri()).path(search);
-	//uriBuilder.query("q", query);
-	URI uri = uriBuilder.build();
-	
-	try {
-		System.out.println("uri="+uri.toURL()+"\n"+uri.toASCIIString()+"\n"+uri.toString());
-	} catch (MalformedURLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+		String search = searchIndexID;
+		if(searchIndexID.contains("/")) {
+				String[] v = searchIndexID.split("/");
+				search = String.format("_design/%s/_search/%s", v[0], v[1]);
+		}
+		URIBuilder uriBuilder = URIBuilder.buildUri(db.getDBUri()).path(search);
+		//uriBuilder.query("q", query);
+		URI uri = uriBuilder.build();
+		
+		try {
+			System.out.println("uri="+uri.toURL()+"\n"+uri.toASCIIString()+"\n"+uri.toString());
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 		HttpPost post = new HttpPost(uri);		
 		post.addHeader("Accept", "application/json");
@@ -160,6 +241,6 @@ public class DBassistant {
 		}
 		return outputText; 
 	}
-	
+	*/
 
 }
