@@ -47,10 +47,19 @@ public class HealthRecordServices {
 	@GET
 	@Path("test/query/hcn/fhir1/{num}")
 	@Produces("application/json")
-	public String testingOnly(@PathParam("num") String num){
+	public String fhir1testingOnly(@PathParam("num") String num){
 		ProcessHealthRecord phr = new ProcessHealthRecord();
 		
 		return phr.hcnSearchHR(num, "fhir1");
+	}
+	
+	@GET
+	@Path("test/query/hcn/fhir2/{num}")
+	@Produces("application/json")
+	public String fhir2testingOnly(@PathParam("num") String num){
+		ProcessHealthRecord phr = new ProcessHealthRecord();
+		
+		return phr.hcnSearchHR(num, "fhir2");
 	}
 	
 	
