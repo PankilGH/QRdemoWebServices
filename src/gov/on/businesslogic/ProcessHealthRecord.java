@@ -119,11 +119,6 @@ public class ProcessHealthRecord {
 			String indexTosearch = designDoc+"/"+indexName;
 			jsonObj = DBassistant.queryForJSONobject(db, indexTosearch, searchString);
 			output = jsonObj.getJSONArray("rows").getJSONObject(0).getJSONObject("doc").getJSONObject("map").toString();
-			
-			//try to reverse the order of JSON elements - this is just for viewing purposes
-			JSONObject jo = new JSONObject(output);
-			output = jo.toString();
-			
 			System.out.println("output: " + output);
 		
 		}
