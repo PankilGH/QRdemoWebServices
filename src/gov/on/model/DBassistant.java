@@ -62,7 +62,7 @@ public class DBassistant {
 	public static String searchDB(Database db, String designDocName, String indexName, String filter) {	
 		System.out.println("db: " + db + " - " + "index: " + indexName + " - " + "key:value: " + filter + " - ");
 		String index = designDocName+"/"+indexName;
-		Search search = db.search(index).includeDocs(true); // the index name and location
+		Search search = db.search(index); // the index name and location
 		InputStream data = search.includeDocs(true).queryForStream(filter); //the search value key:value
 		return ReadInputUtility.inputStreamToString(data);
 	}
