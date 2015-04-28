@@ -1,5 +1,7 @@
 package gov.on.model;
 
+import gov.on.utilities.ReadInputUtility;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,6 +17,7 @@ import org.json.JSONObject;
 import org.lightcouch.internal.URIBuilder;
 
 import com.cloudant.client.api.Database;
+import com.cloudant.client.api.Search;
 import com.cloudant.client.api.model.Response;
 
 
@@ -55,22 +58,18 @@ public class DBassistant {
 		return output;	
 	}
 
-	/*
+	
 	public static String searchDB(Database db, String designDocName, String indexName, String filter) {
 		
 		System.out.println("db: " + db + " - " + "index: " + indexName + " - " + "key:value: " + filter + " - ");
 		
 		String index = designDocName+"/"+indexName;
-		Search search = db.search(index); // the index name and location
-		//queryForStream(filter,db,index);
-		//InputStream data = search.includeDocs(true).queryForStream(filter); //the search value key:value
-		String data = queryForStream(filter,db,index);
-		
-		
-		//
-		return data;
+		Search search = db.search(index).includeDocs(true); // the index name and location
+
+		InputStream data = search.includeDocs(true).queryForStream(filter); //the search value key:value
+		return ReadInputUtility.inputStreamToString(data);
 	}
-	*/
+	
 	
 	
 	// This code needs some clean up

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package gov.on.controller;
+package gov.on.utilities;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -13,9 +13,9 @@ import java.io.InputStreamReader;
  * @author pankil
  *
  */
-public class ControllerUtility {
+public class ReadInputUtility {
 	
-	public static String getRequestBodyString(InputStream data){
+	public static String inputStreamToString(InputStream data){
 		StringBuilder builder = new StringBuilder();
 		boolean parsingSuccess = true;
 		String output = "";

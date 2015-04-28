@@ -8,41 +8,37 @@
 <h2>Information</h2>
 <p>This is an experimental application any data on this server is fake.</p>
 <p>Main purpose of the project is to check feasibility of different type of technologies and ideas.</p>
-<h4>QR Web Services</h4>
-<h5>Description: These services were created for the QR feasibility study</h5>
-<p>To use the web services try:</p>  
-<p>1. Send a get request to /rest/api/recent</p> 
-<p>The server will return a list of the recent post requests that were send to &quot;/rest/api/client&quot; </p>
+<h4>1. QR Web Services</h4>
+<h5>Description: These services were created for the QR-Them, QR-Me, QR-All feasibility study.<br />
+The purpose of this web service is to read JSON and save the read JSON into the Cloudant database.</h5>
 
-<p>2. Send JSON in a post request to /rest/api/client</p>
-<p>This JSON will be saved in the cloudant database and will also be put in the recent request list. </p>
-
+ 
 <!--  
 <p>3. Send a get request to /rest/api/clients</p>
 <p>This is experimental and not implemented yet - it should return all the documents in the clients database on Cloudant.</p>
 -->
-<h4>Health Records</h4>
+<h4>2. Health Records</h4>
 <h5>Search for test data clients using the sample HCNs listed below</h5>
 <p>Query for following records by sending a post request using sample HCN listed below</p>
 <p>Details on what the post request should look like: to do</p>
 
 <p>
 Access FHIR1 or FHIR2 health records data:<br />
-Using get<br /> 
+Using get (for testing purposes)<br /> 
 - FHIR1: <a href=http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/test/query/hcn/fhir1/6337565391>http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/test/query/hcn/fhir1/6337565391</a><br />
 - FHIR2: <a href=http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/test/query/hcn/fhir2/6337565391>http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/test/query/hcn/fhir2/6337565391</a><br />
 </p>
 <p>
 post - http://libertyjavaopal2.mybluemix.net/rest/api/healthrecords/query/hcn/<br />
 FHIR1:<br />
-<b>{ "hcn":"633756539", "fhir":"fhir1"}</b><br />
+<b>{ "hcn":"6337565391", "fhir":"fhir1"}</b><br />
 FHIR2:<br />
-<b>{ "hcn":"633756539", "fhir":"fhir2"}</b><br />
+<b>{ "hcn":"6337565391", "fhir":"fhir2"}</b><br />
 	also<br /> 
 	<b>Content-Type</b> should be set to <b>application/json</b><br />
 </p>
 
-<p>The HCNs that can be searched:</p>
+<p>The HCNs that can be searched on FHIR1:</p>
 <p>
 6337565391<br />
 8988950856<br />

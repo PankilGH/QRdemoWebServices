@@ -4,6 +4,7 @@
 package gov.on.controller;
 
 import gov.on.businesslogic.ProcessHealthRecord;
+import gov.on.utilities.ReadInputUtility;
 
 import java.io.InputStream;
 
@@ -73,7 +74,7 @@ public class HealthRecordServices {
 	@Produces("application/json")
 	public String healthRecordBySearch(InputStream data){
 		String results = "{\"status\":\"error\"}";
-		String req = ControllerUtility.getRequestBodyString(data);
+		String req = ReadInputUtility.inputStreamToString(data);
 		String hcn = "";
 		String fhir = "";
 		boolean valid = true;
