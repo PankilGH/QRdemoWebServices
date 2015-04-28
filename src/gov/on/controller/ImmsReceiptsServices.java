@@ -107,6 +107,5 @@ public class ImmsReceiptsServices {
 		counter++;
 		
 		return Response.status(201).entity(output).build();
-	}
-	
+	}	
 }

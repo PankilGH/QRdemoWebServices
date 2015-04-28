@@ -17,6 +17,7 @@ public class RestWSConfig extends Application{
 		Set<Class<?>> classes = new HashSet<Class<?>>(); 
 		classes.add(ImmsReceiptsServices.class); 
 		classes.add(HealthRecordServices.class);
+		classes.add(FhirReceiptsServices.class);
 		System.out.println("Classes:"+classes); 
 		return classes; 
 	}

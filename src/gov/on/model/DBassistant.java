@@ -58,21 +58,18 @@ public class DBassistant {
 		return output;	
 	}
 
-	
-	public static String searchDB(Database db, String designDocName, String indexName, String filter) {
-		
+	//this needs to be tested - note this search is done via HTTP GET
+	public static String searchDB(Database db, String designDocName, String indexName, String filter) {	
 		System.out.println("db: " + db + " - " + "index: " + indexName + " - " + "key:value: " + filter + " - ");
-		
 		String index = designDocName+"/"+indexName;
 		Search search = db.search(index).includeDocs(true); // the index name and location
-
 		InputStream data = search.includeDocs(true).queryForStream(filter); //the search value key:value
 		return ReadInputUtility.inputStreamToString(data);
 	}
 	
 	
 	
-	// This code needs some clean up
+	// This code needs some clean up, this search is performed via HTTP Post
 	/**
 	 * When I send a number in HTTP GET it gets read as an integer and search doesn't match with
 	 * string value of the same number.
